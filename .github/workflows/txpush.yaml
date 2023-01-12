@@ -1,0 +1,14 @@
+---
+
+on: [push]
+jobs:
+  Push-source-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Push source file using transifex client
+        uses: transifex/cli-action@v1
+        with:
+          token: ${{ secrets.TX_TOKEN }}
+          version: v1.6.3
